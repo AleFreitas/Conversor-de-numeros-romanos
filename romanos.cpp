@@ -27,6 +27,10 @@ int StringValida(std::string numero) {
   return 1;
 }
 
+// recebe 4 argumentos, um numero indo-arabico e um determinado comparador
+// equivalente ao valor de um numero romano, as repetições que o numero
+// indo-arabico possui e as repetições permitidas no caso do comparador.
+// retorna 1 se encontrar repetições indevidas.
 int ComparaNumeroRepeticao(int numero, int comparador_numero,
 int reps, int comparador_reps) {
     if (numero == comparador_numero) {
@@ -35,6 +39,10 @@ int reps, int comparador_reps) {
     return 0;
 }
 
+// recebe um numero indo-arabico e a sua quantidade de repetições na string de
+// origem verifica se esse numero possui mais repetições do que é permitido no
+// sistema de numeros romanos e caso não possua repetições indevidas ele
+// retorna 0.
 int VerificaRepeticaoIndevida(int numero, int reps) {
     int duas_repeticoes = 2;
     int quatro_repeticoes = 4;
@@ -145,6 +153,10 @@ int ConverteNumero(std::string numero) {
     return resultado;
 }
 
+// recebe uma string com numeros romanos validos e garante que sua
+// conversão não corresponde a um numero base do sistema romano.
+// retorna o resultado desta conversão quando a verificação ocorrer
+// com sucesso.
 int GaranteResultadoValido(std::string numero) {
     int resultado = ConverteNumero(numero);
     if (numero.length() >= 2 &&
