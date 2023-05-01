@@ -30,3 +30,18 @@ TEST_CASE ("Multiplos caracteres invalidos (nao romanos) inseridos", "[romanos]"
     REQUIRE (romanos_para_decimal("J2OPA2") == -1);
     REQUIRE (romanos_para_decimal("MMCMLXXIKP") == -1);
 }
+
+TEST_CASE ("Multiplos caracteres validos inseridos de forma invalida (repeticoes invalidas)","[romanos]") {
+    REQUIRE (romanos_para_decimal("VV") == -1);
+    REQUIRE (romanos_para_decimal("XXXX") == -1);
+    REQUIRE (romanos_para_decimal("LL") == -1);
+    REQUIRE (romanos_para_decimal("CCCC") == -1);
+    REQUIRE (romanos_para_decimal("DD") == -1);
+    REQUIRE (romanos_para_decimal("MMMM") == -1);
+}
+
+TEST_CASE ("Multiplos caracteres validos inseridos de forma invalida (ordem invalida)","[romanos]") {
+    REQUIRE (romanos_para_decimal("VX") == -1);
+    REQUIRE (romanos_para_decimal("DM") == -1);
+    REQUIRE (romanos_para_decimal("LC") == -1);
+}
