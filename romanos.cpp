@@ -3,31 +3,31 @@
 #include <iostream>
 #include <string>
 
-#define numero_romano_I 1
-#define numero_romano_V 5
-#define numero_romano_X 10
-#define numero_romano_L 50
-#define numero_romano_C 100
-#define numero_romano_D 500
-#define numero_romano_M 1000
+#define kNumeroRomano_I 1
+#define kNumeroRomano_V 5
+#define kNumeroRomano_X 10
+#define kNumeroRomano_L 50
+#define kNumeroRomano_C 100
+#define kNumeroRomano_D 500
+#define kNumeroRomano_M 1000
 
-int letra_valida(char letra) {
+int LetraValida(char letra) {
   if (letra == 'I' || letra == 'V' || letra == 'X' ||
     letra == 'L' || letra == 'C' || letra == 'D' ||
     letra == 'M') return 1;
   return 0;
 }
 
-int string_valida(std::string numero) {
+int StringValida(std::string numero) {
   for (int i = 0; i < numero.length(); i++) {
-    if (!letra_valida(numero[i])) {
+    if (!LetraValida(numero[i])) {
       return 0;
     }
   }
   return 1;
 }
 
-int compara_numero_repeticao(int numero, int comparador_numero,
+int ComparaNumeroRepeticao(int numero, int comparador_numero,
 int reps, int comparador_reps) {
     if (numero == comparador_numero) {
         if (reps >= comparador_reps) return 1;
@@ -35,101 +35,101 @@ int reps, int comparador_reps) {
     return 0;
 }
 
-int verifica_repeticao_indevida(int numero, int reps) {
+int VerificaRepeticaoIndevida(int numero, int reps) {
     int duas_repeticoes = 2;
     int quatro_repeticoes = 4;
-    if (compara_numero_repeticao(numero, numero_romano_I,
+    if (ComparaNumeroRepeticao(numero, kNumeroRomano_I,
     reps, quatro_repeticoes)) return 1;
-    if (compara_numero_repeticao(numero, numero_romano_V,
+    if (ComparaNumeroRepeticao(numero, kNumeroRomano_V,
     reps, duas_repeticoes)) return 1;
-    if (compara_numero_repeticao(numero, numero_romano_X,
+    if (ComparaNumeroRepeticao(numero, kNumeroRomano_X,
     reps, quatro_repeticoes)) return 1;
-    if (compara_numero_repeticao(numero, numero_romano_L,
+    if (ComparaNumeroRepeticao(numero, kNumeroRomano_L,
     reps, duas_repeticoes)) return 1;
-    if (compara_numero_repeticao(numero, numero_romano_C,
+    if (ComparaNumeroRepeticao(numero, kNumeroRomano_C,
     reps, quatro_repeticoes)) return 1;
-    if (compara_numero_repeticao(numero, numero_romano_D,
+    if (ComparaNumeroRepeticao(numero, kNumeroRomano_D,
     reps, duas_repeticoes)) return 1;
-    if (compara_numero_repeticao(numero, numero_romano_M,
+    if (ComparaNumeroRepeticao(numero, kNumeroRomano_M,
     reps, quatro_repeticoes)) return 1;
     return 0;
 }
 
-int encontra_repeticoes(std::string numero) {
+int EncontraRepeticoes(std::string numero) {
     int rep_numero_anterior = 0;
     int numero_anterior = 0;
     for (int i = 0; i < numero.length(); i++) {
         if (numero[i] == 'I') {
-            if (numero_anterior != numero_romano_I) {
-                numero_anterior = numero_romano_I;
+            if (numero_anterior != kNumeroRomano_I) {
+                numero_anterior = kNumeroRomano_I;
                 rep_numero_anterior = 0;
             }
             rep_numero_anterior++;
         }
         if (numero[i] == 'V') {
-            if (numero_anterior != numero_romano_V) {
-                numero_anterior = numero_romano_V;
+            if (numero_anterior != kNumeroRomano_V) {
+                numero_anterior = kNumeroRomano_V;
                 rep_numero_anterior = 0;
             }
             rep_numero_anterior++;
         }
         if (numero[i] == 'X') {
-            if (numero_anterior != numero_romano_X) {
-                numero_anterior = numero_romano_X;
+            if (numero_anterior != kNumeroRomano_X) {
+                numero_anterior = kNumeroRomano_X;
                 rep_numero_anterior = 0;
             }
             rep_numero_anterior++;
         }
         if (numero[i] == 'L') {
-            if (numero_anterior != numero_romano_L) {
-                numero_anterior = numero_romano_L;
+            if (numero_anterior != kNumeroRomano_L) {
+                numero_anterior = kNumeroRomano_L;
                 rep_numero_anterior = 0;
             }
             rep_numero_anterior++;
         }
         if (numero[i] == 'C') {
-            if (numero_anterior != numero_romano_C) {
-                numero_anterior = numero_romano_C;
+            if (numero_anterior != kNumeroRomano_C) {
+                numero_anterior = kNumeroRomano_C;
                 rep_numero_anterior = 0;
             }
             rep_numero_anterior++;
         }
         if (numero[i] == 'D') {
-            if (numero_anterior != numero_romano_D) {
-                numero_anterior = numero_romano_D;
+            if (numero_anterior != kNumeroRomano_D) {
+                numero_anterior = kNumeroRomano_D;
                 rep_numero_anterior = 0;
             }
             rep_numero_anterior++;
         }
         if (numero[i] == 'M') {
-            if (numero_anterior != numero_romano_M) {
-                numero_anterior = numero_romano_M;
+            if (numero_anterior != kNumeroRomano_M) {
+                numero_anterior = kNumeroRomano_M;
                 rep_numero_anterior = 0;
             }
             rep_numero_anterior++;
         }
-        if (verifica_repeticao_indevida(numero_anterior,
+        if (VerificaRepeticaoIndevida(numero_anterior,
         rep_numero_anterior)) return 1;
     }
     return 0;
 }
 
-int descobre_unidade_em_romano(char letra) {
-    if (letra == 'I') return numero_romano_I;
-    if (letra == 'V') return numero_romano_V;
-    if (letra == 'X') return numero_romano_X;
-    if (letra == 'L') return numero_romano_L;
-    if (letra == 'C') return numero_romano_C;
-    if (letra == 'D') return numero_romano_D;
-    if (letra == 'M') return numero_romano_M;
+int DescobreUnidadeEmRomano(char letra) {
+    if (letra == 'I') return kNumeroRomano_I;
+    if (letra == 'V') return kNumeroRomano_V;
+    if (letra == 'X') return kNumeroRomano_X;
+    if (letra == 'L') return kNumeroRomano_L;
+    if (letra == 'C') return kNumeroRomano_C;
+    if (letra == 'D') return kNumeroRomano_D;
+    if (letra == 'M') return kNumeroRomano_M;
     return 0;
 }
 
-int converte_numero(std::string numero) {
+int ConverteNumero(std::string numero) {
     int resultado = 0;
-    int numero_anterior = descobre_unidade_em_romano(numero[0]);
+    int numero_anterior = DescobreUnidadeEmRomano(numero[0]);
     for (int i = 1; i < numero.length(); i++) {
-        int numero_atual = descobre_unidade_em_romano(numero[i]);
+        int numero_atual = DescobreUnidadeEmRomano(numero[i]);
         if (numero_atual > numero_anterior) {
             // subtrativo
             resultado -= numero_anterior;
@@ -140,25 +140,25 @@ int converte_numero(std::string numero) {
             numero_anterior = numero_atual;
         }
     }
-    int ultimo_numero = descobre_unidade_em_romano(numero[numero.length()-1]);
+    int ultimo_numero = DescobreUnidadeEmRomano(numero[numero.length()-1]);
     resultado+=ultimo_numero;
     return resultado;
 }
 
-int garante_resultado_valido(std::string numero) {
-    int resultado = converte_numero(numero);
+int GaranteResultadoValido(std::string numero) {
+    int resultado = ConverteNumero(numero);
     if (numero.length() >= 2 &&
-    (resultado == numero_romano_I || resultado == numero_romano_V ||
-    resultado == numero_romano_X || resultado == numero_romano_L ||
-    resultado == numero_romano_C || resultado == numero_romano_D ||
-    resultado == numero_romano_M)) return 0;
+    (resultado == kNumeroRomano_I || resultado == kNumeroRomano_V ||
+    resultado == kNumeroRomano_X || resultado == kNumeroRomano_L ||
+    resultado == kNumeroRomano_C || resultado == kNumeroRomano_D ||
+    resultado == kNumeroRomano_M)) return 0;
     return resultado;
 }
 
-int romanos_para_decimal(char const * num_romano) {
-  if (!string_valida(num_romano)) return -1;
-  if (encontra_repeticoes(num_romano)) return -1;
-  int resultado = garante_resultado_valido(num_romano);
+int RomanosParaDecimal(char const * num_romano) {
+  if (!StringValida(num_romano)) return -1;
+  if (EncontraRepeticoes(num_romano)) return -1;
+  int resultado = GaranteResultadoValido(num_romano);
   if (!resultado) return -1;
   return resultado;
 }
