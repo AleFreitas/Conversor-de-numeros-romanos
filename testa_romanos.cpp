@@ -20,3 +20,8 @@ TEST_CASE ("Caractere unico e invalido (nao romano) inserido","[romanos]") {
     REQUIRE (romanos_para_decimal("G") == -1);
     REQUIRE (romanos_para_decimal("H") == -1);
 }
+
+TEST_CASE ("Multiplos caracteres validos inseridos", "[romanos]") {
+    REQUIRE (romanos_para_decimal("MMDCXCI") == 2691);
+    REQUIRE (romanos_para_decimal("MMCMLXXIX") == 2979);
+}
