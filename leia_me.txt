@@ -1,2 +1,7 @@
-﻿com o g++ e o make e demais programas instalados 
+﻿com o g++, make, cpplint, cppcheck, gcov e valgrind instalados 
 digite "make" neste diretório
+
+
+Para uma documentação mais detalhada entre no arquivo README.md deste projeto
+ou veja a documentação do meu repositório no github:
+https://github.com/AleFreitas/Conversor-de-numeros-romanos
