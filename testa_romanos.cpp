@@ -25,3 +25,8 @@ TEST_CASE ("Multiplos caracteres validos inseridos", "[romanos]") {
     REQUIRE (romanos_para_decimal("MMDCXCI") == 2691);
     REQUIRE (romanos_para_decimal("MMCMLXXIX") == 2979);
 }
+
+TEST_CASE ("Multiplos caracteres invalidos (nao romanos) inseridos", "[romanos]") {
+    REQUIRE (romanos_para_decimal("J2OPA2") == -1);
+    REQUIRE (romanos_para_decimal("MMCMLXXIKP") == -1);
+}
