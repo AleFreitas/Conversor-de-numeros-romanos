@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1682905763 source:/home/alexandre/Documentos/UNB/4_Semestre/MP/Trabalho_1_MP/testa_romanos.cpp
+1682911309 source:/home/alexandre/Documentos/UNB/4_Semestre/MP/Trabalho_1_MP/testa_romanos.cpp
 	"catch.hpp"
 	"romanos.hpp"
 
@@ -193,5 +193,10 @@
 	<ctime>
 	<algorithm>
 
-1682526536 /home/alexandre/Documentos/UNB/4_Semestre/MP/Trabalho_1_MP/romanos.hpp
+1682912030 /home/alexandre/Documentos/UNB/4_Semestre/MP/Trabalho_1_MP/romanos.hpp
+
+1682912936 source:/home/alexandre/Documentos/UNB/4_Semestre/MP/Trabalho_1_MP/romanos.cpp
+	"./romanos.hpp"
+	<iostream>
+	<string>
 
